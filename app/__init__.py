@@ -8,9 +8,11 @@ from config import Config
 app = Flask(__name__, static_url_path='/web')
 
 from app.geohash import bp as geohash_bp
+from app.squares import bp as sqares_bp
 
 
 app.register_blueprint(geohash_bp, url_prefix='/geohash')
+app.register_blueprint(sqares_bp, url_prefix='/squares')
 
 app.config.from_object(Config)
 db = SQLAlchemy(app)
